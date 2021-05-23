@@ -3,6 +3,6 @@ package com.example.madappgangtest.data
 import com.google.gson.annotations.SerializedName
 
 data class DragonHeightWTrunk(
-    @SerializedName("meters") var meters: Double,
-    @SerializedName("feet") var feet: Double,
+    @SerializedName("meters") var metersTrunk: Double,
+    @SerializedName("feet") var feetTrunk: Double,
 )

@@ -1,7 +1,7 @@
 package com.example.madappgangtest.data
 
-import androidx.room.Entity
-import androidx.room.PrimaryKey
+import androidx.room.*
+import com.example.madappgangtest.database.ListStringConverter
 import com.google.gson.annotations.SerializedName
 
 @Entity(tableName = "dragons", primaryKeys = ["id"])
@@ -23,17 +23,19 @@ data class Dragon(
     @SerializedName("description") var description: String? = null,
 
 
-    @SerializedName("heat_shield") var heatShield: DragonHeatShield,
-    @SerializedName("launch_payload_mass") var lounchPayloadMass: DragonLounchPayloadMass,
-    @SerializedName("launch_payload_vol") var lounchPayloadVol: DragonLounchPayloadVol,
-    @SerializedName("return_payload_mass") var returnPayloadMass: DragonReturnPayloadMass,
-    @SerializedName("return_payload_vol") var returnPayloadVol: DragonReturnPayloadVol,
-    @SerializedName("pressurized_capsule") var pressurizedCapsule: DragonPressurizedCapsule,
-    @SerializedName("trunk") var trunk: DragonTrunk,
+    //@SerializedName("heat_shield") var heatShield: DragonHeatShield,
+    //@SerializedName("launch_payload_mass") var lounchPayloadMass: DragonLounchPayloadMass,
+    //@SerializedName("launch_payload_vol") var lounchPayloadVol: DragonLounchPayloadVol,
+    //@SerializedName("return_payload_mass") var returnPayloadMass: DragonReturnPayloadMass,
+    //@SerializedName("return_payload_vol") var returnPayloadVol: DragonReturnPayloadVol,
+    //@SerializedName("pressurized_capsule") var pressurizedCapsule: DragonPressurizedCapsule,
+    //@SerializedName("trunk") var trunk: DragonTrunk,
+    @Embedded
     @SerializedName("height_w_trunk") var heightWTrunk: DragonHeightWTrunk,
-    @SerializedName("diameter") var diametr: DragonDiametr,
+    //@SerializedName("diameter") var diametr: DragonDiametr,
+    @TypeConverters(ListStringConverter::class)
     @SerializedName("flickr_images") var flickrImages: List<String>,
-    @SerializedName("thrusters") var thrusters: List<DragonThrusters>,
+    //@SerializedName("thrusters") var thrusters: List<DragonThrusters>,
 
     )
 
