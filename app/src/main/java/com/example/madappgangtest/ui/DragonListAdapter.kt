@@ -9,9 +9,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.madappgangtest.R
 import com.example.madappgangtest.data.Dragon
 import com.squareup.picasso.Picasso
-import java.util.*
 
-class DragonListAdapter(var dragonList: MutableList<Dragon> /* create callback  так же как и onResponseDragons */) :
+class DragonListAdapter(var dragonList: MutableList<Dragon>,val onDragonClick: (Dragon) -> Unit  /* create callback  так же как и onResponseDragons */) :
     RecyclerView.Adapter<DragonListAdapter.ViewHolder>() {
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -19,13 +18,13 @@ class DragonListAdapter(var dragonList: MutableList<Dragon> /* create callback  
         val tvContent = view.findViewById<TextView>(R.id.tvContent)
         val imView = view.findViewById<ImageView>(R.id.imView)
 
-        fun bind(dragon: Dragon) {
+        fun bind(dragon: Dragon, onDragonClick: (Dragon) -> Unit) {
             itemView.setOnClickListener {
                 //return result from dragon to callback
-
+              onDragonClick(dragon)
             }
             tvTitle.text = dragon.name
-            tvContent.text = dragon.description
+            tvContent.text = dragon.firstFlight
             Picasso.get()
                 .load(dragon.flickrImages[0])
                 .into(imView)
@@ -40,7 +39,7 @@ class DragonListAdapter(var dragonList: MutableList<Dragon> /* create callback  
     }
 
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
-        viewHolder.bind(dragonList[position])
+        viewHolder.bind(dragonList[position], onDragonClick)
     }
 
     override fun getItemCount(): Int {

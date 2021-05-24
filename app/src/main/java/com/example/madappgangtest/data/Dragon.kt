@@ -32,7 +32,7 @@ data class Dragon(
     //@SerializedName("trunk") var trunk: DragonTrunk,
     @Embedded
     @SerializedName("height_w_trunk") var heightWTrunk: DragonHeightWTrunk,
-    //@SerializedName("diameter") var diametr: DragonDiametr,
+    //@SerializedName("diameter") var diameter: DragonDiametr,
     @TypeConverters(ListStringConverter::class)
     @SerializedName("flickr_images") var flickrImages: List<String>,
     //@SerializedName("thrusters") var thrusters: List<DragonThrusters>,

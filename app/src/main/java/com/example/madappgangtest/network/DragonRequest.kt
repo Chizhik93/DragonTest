@@ -13,7 +13,7 @@ class DragonRequest(applicationContext: Context) {
     val db = Room.databaseBuilder(
         applicationContext,
         DragonDatabase::class.java, "dragonsDatabase"
-    ).allowMainThreadQueries().build()
+    ).fallbackToDestructiveMigration().allowMainThreadQueries().build()
     val dragonDao = db.dragonDao()
 
     fun loadAllDragonList(onResponseDragons: (MutableList<Dragon>?) -> Unit) {
