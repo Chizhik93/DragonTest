@@ -25,13 +25,13 @@ class DragonInfoActivity : AppCompatActivity() {
         val infoDescriptionText = findViewById<TextView>(R.id.infoDescriptionText)
         infoDescriptionText.text = dragon.description
         val infoWikiText = findViewById<TextView>(R.id.infoWikiText)
-        infoWikiText.text = dragon.wikipidia
+        infoWikiText.text = "WiKi: ${dragon.wikipidia}"
         val infoMassText = findViewById<TextView>(R.id.infoMassText)
-        infoMassText.text = "Mass: " + dragon.dryMassKg + " kg"
+        infoMassText.text = "Mass: ${dragon.dryMassKg} kg"
         val infoFlightText = findViewById<TextView>(R.id.infoFlightText)
-        infoFlightText.text = "First flight: " + dragon.firstFlight
-        /*val infoDiameterText = findViewById<TextView>(R.id.infoDiameterText)
-        infoDiameterText.text = "Diameter: " + dragon.diameter*/
+        infoFlightText.text = "First flight: ${dragon.firstFlight}"
+        val infoDiameterText = findViewById<TextView>(R.id.infoDiameterText)
+        infoDiameterText.text = "Diameter: ${dragon.diameter.metersDiameter} m"
 
         val dragonItems = findViewById<RecyclerView>(R.id.infoRecyclerView)
         val linearLayoutManager = LinearLayoutManager(applicationContext)

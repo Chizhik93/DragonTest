@@ -20,16 +20,13 @@ class DragonListAdapter(var dragonList: MutableList<Dragon>,val onDragonClick: (
 
         fun bind(dragon: Dragon, onDragonClick: (Dragon) -> Unit) {
             itemView.setOnClickListener {
-                //return result from dragon to callback
-              onDragonClick(dragon)
+                onDragonClick(dragon)
             }
             tvTitle.text = dragon.name
             tvContent.text = dragon.firstFlight
             Picasso.get()
                 .load(dragon.flickrImages[0])
                 .into(imView)
-
-            // use Picasso for download image from url
         }
     }
 

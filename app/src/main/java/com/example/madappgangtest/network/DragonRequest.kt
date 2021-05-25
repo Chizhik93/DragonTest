@@ -19,7 +19,7 @@ class DragonRequest(applicationContext: Context) {
     fun loadAllDragonList(onResponseDragons: (MutableList<Dragon>?) -> Unit) {
         mService.getMovieList().enqueue(object : Callback<MutableList<Dragon>> {
             override fun onFailure(call: Call<MutableList<Dragon>>, t: Throwable) {
-                val i = 0
+
             }
 
             override fun onResponse(

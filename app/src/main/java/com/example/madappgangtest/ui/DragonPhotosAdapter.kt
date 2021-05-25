@@ -5,13 +5,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.ProgressBar
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.madappgangtest.R
-import com.example.madappgangtest.data.Dragon
 import com.squareup.picasso.Callback
 import com.squareup.picasso.Picasso
-import java.lang.Exception
 
 class DragonPhotosAdapter(var photosList: MutableList<String>) :
     RecyclerView.Adapter<DragonPhotosAdapter.ViewHolder>() {
@@ -23,7 +20,7 @@ class DragonPhotosAdapter(var photosList: MutableList<String>) :
         fun bind(photo: String) {
             Picasso.get()
                 .load(photo)
-                .into(photoImageView, object :Callback {
+                .into(photoImageView, object : Callback {
                     override fun onSuccess() {
                         progressBar.visibility = View.GONE
                     }
@@ -33,7 +30,6 @@ class DragonPhotosAdapter(var photosList: MutableList<String>) :
                     }
 
                 })
-            // use Picasso for download image from url
         }
     }
 
